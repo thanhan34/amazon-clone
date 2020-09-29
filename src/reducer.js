@@ -9,12 +9,14 @@ export const initialState = {
             rating: 5,
         }
     ],
+    user: null,
 };
 export const actionTypes = {
     ADD_TO_BASKET: "ADD_TO_BASKET",
     REMOVE_FROM_BASKET: "REMOVE_FROM_BASKET"
 };
-
+export const getBasetketTotal = (basket) =>
+    basket?.reduce((amount, item) => item.price + amount, 0);
 const reducer = (state, action) => {
 
     switch (action.type) {
