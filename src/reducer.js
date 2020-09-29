@@ -11,8 +11,13 @@ const reducer = (state, action) => {
 
     switch (action.type) {
         case actionTypes.ADD_TO_BASKET:
+            return {
+                ...state,
+                basket: [...state.basket, action.item]
+            }
             break;
         case actionTypes.REMOVE_FROM_BASKET:
+            return { state }
             break;
         default:
             return state;
