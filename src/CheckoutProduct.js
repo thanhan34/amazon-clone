@@ -22,11 +22,10 @@ function CheckoutProduct({ id, title, image, price, rating }) {
                             Array(rating)
                                 .fill()
                                 .map((_) => (
-                                    <p>⭐</p>
+                                    <span>⭐</span>
                                 ))
                         }
                     </div>
-
                 </p>
                 <button onClick={removeFromBasket}>Remove from basket</button>
             </div>

@@ -1,19 +1,12 @@
 
 export const initialState = {
-    basket: [
-        {
-            id: "123131",
-            title: "Garmin 010-01614-00 Forerunner 735XT, Black/Gray",
-            image: "https://images-fe.ssl-images-amazon.com/images/I/31IucGwsjEL._AC_AA240_FMwebp_QL65_.jpg",
-            price: 299.00,
-            rating: 5,
-        }
-    ],
+    basket: [],
     user: null,
 };
 export const actionTypes = {
     ADD_TO_BASKET: "ADD_TO_BASKET",
-    REMOVE_FROM_BASKET: "REMOVE_FROM_BASKET"
+    REMOVE_FROM_BASKET: "REMOVE_FROM_BASKET",
+    SET_USER: "SET_USER"
 };
 export const getBasetketTotal = (basket) =>
     basket?.reduce((amount, item) => item.price + amount, 0);
@@ -37,6 +30,11 @@ const reducer = (state, action) => {
             }
             return { ...state, basket: newBasket, }
             break;
+        case actionTypes.SET_USER:
+            return {
+                ...state,
+                user: action.user
+            }
         default:
             return state;
     }
